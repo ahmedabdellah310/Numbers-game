@@ -240,7 +240,7 @@ let resultCard = document.getElementById("result");
 let resultContent = `
     <h2>🎉 النتيجة</h2>
     <p>الرقم الذي حصلت عليه هو:</p>
-    <div style="font-size: 4rem; font-weight: bold; color: #fff; margin: 20px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${magicResult}</div>
+    <div class="result-number" style="font-size: 4rem; font-weight: bold; margin: 20px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${magicResult}</div>
 `;
 
 resultCard.innerHTML = resultContent;

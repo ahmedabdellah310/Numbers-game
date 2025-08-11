@@ -409,6 +409,39 @@ main {
     }
 }
 
+/* Result number styling */
+.result-number {
+    /* خط احترافي مع وضوح عالي */
+    font-family: 'Tajawal', 'Cairo', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* لون متدرج داخل النص مع توهج أخضر */
+    background: linear-gradient(180deg, #34d399 0%, #22c55e 50%, #16a34a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    /* حدود خفيفة لزيادة التباين */
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.15);
+
+    /* توهج ناعم احترافي */
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.6), 0 0 16px rgba(34, 197, 94, 0.45), 0 0 28px rgba(34, 197, 94, 0.3);
+    animation: result-green-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes result-green-glow {
+    from {
+        text-shadow: 0 0 6px rgba(34, 197, 94, 0.5), 0 0 12px rgba(34, 197, 94, 0.35);
+    }
+    to {
+        text-shadow: 0 0 12px rgba(34, 197, 94, 0.85), 0 0 24px rgba(34, 197, 94, 0.6);
+    }
+}
+
 /* Note text styling */
 .note-text {
     color: #ff4d4d;
