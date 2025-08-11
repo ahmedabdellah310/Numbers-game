@@ -11,32 +11,26 @@ let currentSlide = 1;
 let prevBtn = document.getElementById("prev");
 let nextBtn = document.getElementById("next");
 // قفل بسيط لمنع تكرار الانتقال عند النقرات السريعة
-let isClickLocked = false;
+// تمت إزالة قفل النقر لضمان استجابة فورية
 // أعلام لمنع تنفيذ النقر مرتين عند استخدام pointerdown ثم click
 let nextSuppressClick = false;
 let prevSuppressClick = false;
 
 function nextSlide() {
-    if (nextBtn.classList.contains("disabled") || isClickLocked) {
+    if (nextBtn.classList.contains("disabled")) {
         return false;
     } else {
-        isClickLocked = true;
         currentSlide++;
         checker();
-        // فك القفل بعد فترة قصيرة (زمن أصغر لاستجابة أسرع)
-        setTimeout(() => (isClickLocked = false), 120);
     }
 }
 
 function prevSlide() {
-    if (prevBtn.classList.contains("disabled") || isClickLocked) {
+    if (prevBtn.classList.contains("disabled")) {
         return false;
     } else {
-        isClickLocked = true;
         currentSlide--;
         checker();
-        // فك القفل بعد فترة قصيرة (زمن أصغر لاستجابة أسرع)
-        setTimeout(() => (isClickLocked = false), 120);
     }
 }
 
@@ -114,9 +108,8 @@ function playSlide6Sound() {
     
     if (playPromise !== undefined) {
         playPromise.catch(error => {
+            // لا نعرض أي تنبيه حتى لا نعيق الانتقال الفوري
             console.log('خطأ في تشغيل الصوت:', error);
-            // إظهار رسالة للمستخدم إذا فشل تشغيل الصوت
-            alert('تعذر تشغيل الصوت. يرجى التأكد من تفعيل الصوت في المتصفح.');
         });
     }
 }
@@ -156,7 +149,8 @@ function checker() {
         nextBtn.parentElement.style.display = 'inline-block';
         bullets.style.display = 'flex';
         nextBtn.classList.remove("disabled");
-        nextBtn.classList.add("animation");
+        // إزالة أي تأثيرات متحركة
+        nextBtn.classList.remove("animation");
     }
 
     // إعادة تشغيل اللعبة تلقائياً بعد 3 ثوانِ من ظهور النتيجة
@@ -187,11 +181,8 @@ function playClickSound() {
     // يمكن إضافة صوت هنا إذا أردت
 }
 
-// تحسين تجربة المستخدم
-// ملاحظة: مستمعو الأحداث أعلاه يقومون بالفعل بمعالجة النقرات
-// لذا نضيف الصوت ضمن نفس نقرة الزر بدون تكرار المنطق
-nextBtn.addEventListener('click', function(){ playClickSound(); });
-prevBtn.addEventListener('click', function(){ playClickSound(); });
+// إزالة تشغيل الصوت على الأزرار (لا تأثير صوتي)
+// تم إلغاء مستمعات الصوت لزر التالي والسابق
 
 // تهيئة الصوت عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
