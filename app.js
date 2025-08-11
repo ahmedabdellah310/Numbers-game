@@ -15,6 +15,9 @@ let nextBtn = document.getElementById("next");
 // أعلام لمنع تنفيذ النقر مرتين عند استخدام pointerdown ثم click
 let nextSuppressClick = false;
 let prevSuppressClick = false;
+// أعلام لقوالب الحاويات لمنع التنفيذ المزدوج
+let nextContainerSuppress = false;
+let prevContainerSuppress = false;
 
 function nextSlide() {
     if (nextBtn.classList.contains("disabled")) {
@@ -46,21 +49,42 @@ prevBtn.addEventListener('pointerdown', function(e){
     prevSlide();
 });
 
+// اجعل النقر على الحاوية كلها يعمل فوراً
+if (nextBtn && nextBtn.parentElement) {
+    nextBtn.parentElement.addEventListener('pointerdown', function(e){
+        e.preventDefault();
+        // منع التكرار إذا كان الحدث على الرابط نفسه
+        if (e.target === nextBtn) return;
+        nextContainerSuppress = true;
+        nextSlide();
+    });
+}
+if (prevBtn && prevBtn.parentElement) {
+    prevBtn.parentElement.addEventListener('pointerdown', function(e){
+        e.preventDefault();
+        if (e.target === prevBtn) return;
+        prevContainerSuppress = true;
+        prevSlide();
+    });
+}
+
 // احتياطيًا: في حال عدم دعم pointer events على بعض الأجهزة
 // منع السلوك الافتراضي للرابط وضمان تنفيذ خطوة واحدة لكل نقرة
 nextBtn.addEventListener('click', function(e) {
-    if (nextSuppressClick) {
+    if (nextSuppressClick || nextContainerSuppress) {
         e.preventDefault();
         nextSuppressClick = false;
+        nextContainerSuppress = false;
         return;
     }
     e.preventDefault();
     nextSlide();
 });
 prevBtn.addEventListener('click', function(e) {
-    if (prevSuppressClick) {
+    if (prevSuppressClick || prevContainerSuppress) {
         e.preventDefault();
         prevSuppressClick = false;
+        prevContainerSuppress = false;
         return;
     }
     e.preventDefault();

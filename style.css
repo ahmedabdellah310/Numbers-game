@@ -1,3 +1,18 @@
+.nav-button a:active,
+.nav-button a:focus,
+.nav-button a:focus-visible {
+    outline: none;
+    transform: none;
+    opacity: 1;
+    filter: none;
+    text-shadow: none;
+}
+
+/* تأكيد عدم ظهور أي طبقة عند الضغط */
+.nav-button:active::before,
+.nav-button a:active::before {
+    opacity: 0 !important;
+}
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
 * {
@@ -245,7 +260,7 @@ main {
     border-radius: 30px;
     overflow: hidden;
     transition: none;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+    box-shadow: none;
     margin: 0 10px;
     border: none;
     outline: none;
@@ -258,6 +273,7 @@ main {
     user-select: none;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
+    background: none !important;
 }
 
 @keyframes button-border-glow {
@@ -275,7 +291,7 @@ main {
     align-items: center;
     justify-content: center;
     padding: 12px 30px;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -291,6 +307,7 @@ main {
     user-select: none;
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
+    background: none !important;
 }
 
 @keyframes button-glow {
@@ -303,8 +320,8 @@ main {
 }
 
 .next-button {
-    background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-    box-shadow: 0 4px 15px rgba(45, 52, 54, 0.5);
+    background: none !important;
+    box-shadow: none !important;
 }
 
 .next-button::before {
@@ -314,15 +331,12 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
-    opacity: 0;
-    transition: all 0.4s ease;
-    z-index: 1;
+    display: none;
 }
 
 .prev-button {
-    background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
-    box-shadow: 0 4px 15px rgba(45, 52, 54, 0.5);
+    background: none !important;
+    box-shadow: none !important;
 }
 
 .prev-button::before {
@@ -332,21 +346,18 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #636e72 0%, #2d3436 100%);
-    opacity: 0;
-    transition: all 0.4s ease;
-    z-index: 1;
+    display: none;
 }
 
 .nav-button:hover {
     transform: none;
-    background: inherit;
-    box-shadow: inherit;
+    background: none !important;
+    box-shadow: none !important;
 }
 
 .nav-button:active {
     transform: none;
-    box-shadow: inherit;
+    box-shadow: none !important;
 }
 
 .nav-button:hover::before {
