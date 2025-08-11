@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="theme-color" content="#111111">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <title>لعبة الأرقام</title>
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Audio element for slide 6 sound -->
+        <audio id="slide6Sound" preload="auto" style="display: none;">
+            <source src="vv.m4a" type="audio/mp4">
+            <source src="vv.m4a" type="audio/mp4a">
+            <source src="vv.m4a" type="audio/m4a">
+            <source src="vv.m4a" type="audio/aac">
+            Your browser does not support the audio element.
+        </audio>
+        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="header">
+            <!-- Game title removed -->
+        </div>
+        
+        <main>
+            <div class="container">
+                <div class="card">
+                    <h2>🎯 ابدأ اللعبة</h2>
+                    <p>اختر رقمًا في ذهنك!</p>
+                    <br />
+                    <strong class="note-text">ملاحظة</strong> استخدم <span class="calculator-text">الآلة الحاسبة</span> للحصول على نتائج أفضل
+                </div>
+                
+                <div class="card">
+                    <h2>✖️ الخطوة الأولى</h2>
+                    <p>اضرب الرقم في 2</p>
+                </div>
+                
+                <div class="card">
+                    <h2>🎯 أضف هذا الرقم</h2>
+                    <p id="RN"></p>
+                </div>
+                
+                <div class="card">
+                    <h2>➗ الخطوة الثانية</h2>
+                    <p>ثم اقسم الناتج على 2</p>
+                </div>
+                
+                <div class="card">
+                    <h2>➖ الخطوة الأخيرة</h2>
+                    <p>اطرح الرقم الذي اخترته في البداية من الناتج</p>
+                </div>
+                
+                <div class="card" id="result">
+                    <h2>🎉 النتيجة السحرية</h2>
+                    <p>الرقم الذي حصلت عليه هو...</p>
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <div class="nav-button prev-button"><a href="#" id="prev">السابق</a></div>
+                <ul class="nums" id="nums"></ul>
+                <div class="nav-button next-button"><a href="#" id="next">التالي</a></div>
+            </div>
+        </main>
+        
+        <footer class="copyright">
+            <p>All rights reserved to Ahmed Abdellah © 2025</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/ahmedabdellahofficial1" class="social-icon" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://t.me/ahmedabdellah_310" class="social-icon" target="_blank" title="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://wa.me/201126485957" class="social-icon" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </footer>
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="app.js"></script>
+    </body>
+</html>
